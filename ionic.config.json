@@ -1,0 +1,7 @@
+{
+  "name": "Address-Book",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
