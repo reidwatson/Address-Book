@@ -1,0 +1,31 @@
+.tableWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}
+
+
+.searchWrapper {
+    display: flex;
+    flex-direction: column;
+}
+.searchWrapper label {
+    font-size: 24px;
+    margin: 12px auto 0 12px;
+}
+.searchWrapper input {
+    font-size: 24px;
+    padding: 8px 12px;
+    margin: 4px auto auto 12px;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+}
+
+.searchWrapper input::placeholder {
+    color: #fff;
+}
+
+.searchWrapper input:focus-visible {
+    outline: none !important;
+}
