@@ -1,0 +1,98 @@
+.card {
+  width: 30%;
+  background: var(--ion-color-dark);
+  margin: auto;
+  padding: 12px;
+  border-radius: 12px;
+  color: #000;
+}
+
+.card .row {
+  display: flex;
+  flex-direction: row;
+}
+
+.companyName {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.companyName span {
+  margin: auto auto auto 0;
+  font-size: 24px;
+  font-weight: 600;
+} 
+
+.companyCode {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.companyCode span {
+  margin: auto 0 auto auto ;
+  font-size: 32px;
+  font-weight: 800;
+} 
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.contactName {
+  font-size: 24px;
+  font-weight: 600;
+}
+.contactTitle {
+  font-size: 18px;
+  color: var(--ion-color-light-tint);
+  font-weight: 300;
+
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin: auto 0 auto auto;
+  width: 40%;
+}
+
+.email {
+  font-size: 20px;
+  color: var(--ion-color-light);
+  font-weight: 600;
+}
+
+.phone, .fax {
+  font-size: 16px;
+  color: var(--ion-color-light);
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.card label {
+  font-size: 18px;
+  color: var(--ion-color-light);
+  font-weight: 500;
+
+}
+
+
+.hr-div {
+  margin: 8px 0;
+  border: 1px solid var(--ion-color-medium);
+}
+
+
+@media screen and (max-width: 800px) {
+  .card {
+    width: 100%;
+  }
+}

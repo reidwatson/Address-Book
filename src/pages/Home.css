@@ -29,3 +29,15 @@
 .searchWrapper input:focus-visible {
     outline: none !important;
 }
+
+.cardsWrapper {
+    margin: 24px 12px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.card {
+    font-family: Montserrat !important;
+}

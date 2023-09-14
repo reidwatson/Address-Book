@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import ContactCard from '../components/ContactCard';
 import { XMLParser } from "fast-xml-parser";
 import DataTable from 'react-data-table-component';
 import './Home.css';
@@ -11,6 +11,8 @@ const Home: React.FC = () => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+
+  const [viewMode, setViewMode] = useState('table');//either 'table' or 'card'
 
 
   //column definitions for the data table
@@ -127,11 +129,23 @@ const Home: React.FC = () => {
           <input type='text' value={searchTerm} onInput={(e: any) => setSearchTerm(e.target.value)} placeholder='Search Term'/>
         </section>
 
-        <section className='tableWrapper'>
-          <DataTable data={filteredData} columns={columns} responsive pagination />
-        </section>
+        {
+          viewMode === 'tablee' ? (
+            <section className='tableWrapper'>
+              <DataTable data={filteredData} columns={columns} responsive pagination />
+            </section>
+          ) : (
+            <div className='cardsWrapper'>
+            {
+              filteredData.map((x: any) => {
+                return (<ContactCard contact={x} />)
+              })
+            }
+            
+            </div>
+          )
+        }
 
-        {/* <ExploreContainer /> */}
       </IonContent>
     </IonPage>
   );
