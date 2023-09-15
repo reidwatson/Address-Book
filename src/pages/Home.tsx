@@ -11,7 +11,6 @@ const Home: React.FC = () => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-
   const [viewMode, setViewMode] = useState('table');//either 'table' or 'card'
 
 
@@ -160,7 +159,7 @@ const Home: React.FC = () => {
         {
           viewMode === 'table' ? (
             <section className='tableWrapper'>
-              <DataTable data={filteredData} columns={columns} responsive pagination />
+              <DataTable data={filteredData} columns={columns} responsive pagination striped />
             </section>
           ) : (
             <div className='cardsWrapper'>
