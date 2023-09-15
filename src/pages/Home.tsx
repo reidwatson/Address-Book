@@ -87,12 +87,12 @@ const Home: React.FC = () => {
   //(I got this regex from chatgpt -- not gonna lie)
   function scrub(name: string) {
     return name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase();
-}
+  }
 
   //filter the data being shown whenever the search term gets updated (whenever you type in the input field)
   //if the input field is blank or there is an error, default back to the whole data set.
   useEffect(() => {
-    try { 
+    try {
       console.log('searching...', searchTerm)
       let result = [...data];
 
@@ -110,6 +110,20 @@ const Home: React.FC = () => {
     }
   }, [searchTerm]);//listen to changes on 'searchTerm'
 
+
+  //switch between table and card view
+  function toggleMode() {
+    try {
+      if (viewMode === 'table') {
+        setViewMode('card');
+      } else if (viewMode === 'card') {
+        setViewMode('table');
+      }
+    } catch (e) {
+      console.error('Error trying to toggle viewMode: ', e)
+    }
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -125,23 +139,36 @@ const Home: React.FC = () => {
         </IonHeader>
 
         <section className='searchWrapper'>
-          <label>Search by any field</label>
-          <input type='text' value={searchTerm} onInput={(e: any) => setSearchTerm(e.target.value)} placeholder='Search Term'/>
+          <div className='searchColumn'>
+            <label>Filter by any field</label>
+            <input type='text' value={searchTerm} onInput={(e: any) => setSearchTerm(e.target.value)} placeholder='Search Term' />
+          </div>
+
+          <div className='searchColumn'>
+            <span className='toggleMode' onClick={() => toggleMode()}>
+              {
+                viewMode === 'table' ? (
+                  <>Switch To Card View</>
+                ) : (
+                  <>Switch To Table View</>
+                )
+              }
+            </span>
+          </div>
         </section>
 
         {
-          viewMode === 'tablee' ? (
+          viewMode === 'table' ? (
             <section className='tableWrapper'>
               <DataTable data={filteredData} columns={columns} responsive pagination />
             </section>
           ) : (
             <div className='cardsWrapper'>
-            {
-              filteredData.map((x: any) => {
-                return (<ContactCard contact={x} />)
-              })
-            }
-            
+              {
+                filteredData.map((x: any) => {
+                  return (<ContactCard contact={x} />)
+                })
+              }
             </div>
           )
         }

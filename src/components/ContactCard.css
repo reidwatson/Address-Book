@@ -2,8 +2,8 @@
   width: 30%;
   background: var(--ion-color-dark);
   margin: auto;
-  padding: 12px;
-  border-radius: 12px;
+  padding: 14px;
+  border-radius: 14px;
   color: #000;
 }
 
@@ -50,14 +50,13 @@
   font-size: 18px;
   color: var(--ion-color-light-tint);
   font-weight: 300;
-
 }
 
 .info {
   display: flex;
   flex-direction: column;
   margin: auto 0 auto auto;
-  width: 40%;
+  width: 50%;
 }
 
 .email {
@@ -90,9 +89,54 @@
   border: 1px solid var(--ion-color-medium);
 }
 
+@media screen and (min-width: 801px) and (max-width: 1800px) {
+  .card {
+    width: 40%;
+  }
+}
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1200px) {
   .card {
     width: 100%;
+  }
+
+  .contactRow {
+    flex-direction: column !important;
+    gap: 12px;
+  }
+
+  .contact, .info {
+    width: 100%;
+  }
+
+  .companyName span {
+    font-size: 20px;
+  } 
+  
+  .companyCode span {
+    margin: auto 0 auto auto ;
+    font-size: 32px;
+    font-weight: 800;
+  } 
+  
+  .contactName {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .contactTitle {
+    font-size: 14px;
+    color: var(--ion-color-light-tint);
+    font-weight: 300;
+  }
+
+  .email {
+    font-size: 20px;
+    color: var(--ion-color-light);
+    font-weight: 600;
+  }
+  
+  .phone, .fax {
+    font-size: 16px;
+    color: var(--ion-color-light);
   }
 }
